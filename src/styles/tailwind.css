@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .boor {
+    @apply border border-black;
+  }
+
+  .navbar-header {
+    @apply cursor-pointer hover:text-primary transition transform hover:scale-110;
+  }
+}
