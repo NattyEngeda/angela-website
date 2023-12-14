@@ -5,6 +5,7 @@ import Header from "./layout/Header.vue";
 <template>
   <main>
     <Header />
+    <h1>Header</h1>
   </main>
 </template>
 
