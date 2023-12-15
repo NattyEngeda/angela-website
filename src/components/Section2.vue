@@ -54,7 +54,7 @@
     <div class="w-full container mx-auto px-5 md:px-0 py-10">
       <ul class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
         <li
-        class="w-full border border-gary-200 rounded-md shadow-md p-5"
+        class="w-full border border-gary-200 rounded-md shadow-md p-5 box-transition"
         v-for="item in mainServices" :key="item.id">
           <div class="w-full h-40">
             <img class="w-full h-full object-cover object-center rounded-md" :src="item.image" alt="Basic Facial">
@@ -82,7 +82,7 @@
       <div>
         <ul class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
           <li
-          class="w-full border border-gary-200 rounded-md shadow-md p-5"
+          class="w-full border border-gary-200 rounded-md shadow-md p-5 box-transition"
           v-for="item in facialAddons" :key="item.id">
             <div class="w-full h-40">
               <img class="w-full h-full object-cover object-center rounded-md" :src="item.image" alt="Basic Facial">
@@ -106,7 +106,7 @@
       <div>
         <ul class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
           <li
-          class="w-full border border-gary-200 rounded-md shadow-md p-5"
+          class="w-full border border-gary-200 rounded-md shadow-md p-5 box-transition"
           v-for="item in waxingServices" :key="item.id">
             <div class="w-full h-40">
               <img class="w-full h-full object-cover object-center rounded-md" :src="item.image" alt="Basic Facial">
