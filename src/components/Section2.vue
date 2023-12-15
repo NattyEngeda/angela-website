@@ -70,7 +70,7 @@
     </div>
 
     <div class="w-full bg-primary h-20 flex flex-rows items-center justify-center">
-      <p class="text-white text-2xl">All Facial services include an arm and hand massage for complete relaxation.</p>
+      <p class="text-white text-lg md:text-2xl text-center">All Facial services include an arm and hand massage for complete relaxation.</p>
     </div>
 
     <!-- Facial Addons -->

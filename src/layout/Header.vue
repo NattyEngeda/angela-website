@@ -1,21 +1,24 @@
 <template>
   <header
-    class="w-full h-20 md:px-20 py-1 bg-white flex flex-row gap-10 items-center justify-between shadow"
+    class="w-full h-20 md:px-20 py-1 bg-white shadow"
   >
-    <!-- Angel Skin Logo -->
-    <div>
+    <div class="w-full container mx-auto  flex flex-row gap-10 items-center justify-between ">
+      <!-- Angel Skin Logo -->
+    <div class="px-5 md:px-0">
       <img class="w-16 h-16" src="../assets/logo/logo.jpg" alt="Logo" />
     </div>
 
     <!-- Website Header -->
     <div>
       <!-- Desktop View -->
-      <div class="flex flex-row gap-10">
+      <div class="hidden md:flex flex-row gap-10">
         <h1 class="navbar-header">Home</h1>
         <h1 class="navbar-header">Services</h1>
         <h1 class="navbar-header">About</h1>
         <h1 class="navbar-header">Contact</h1>
       </div>
+    </div>
+
     </div>
   </header>
 </template>
