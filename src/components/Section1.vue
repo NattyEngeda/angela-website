@@ -18,7 +18,7 @@
     <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center gap-12">
      <div class="title-font sm:text-5xl text-3xl font-medium text-gray-900 flex flex-col gap-5">
         <h1 >Angel Skin
-        <h1>Repair Your Skin Barries</h1>
+        <h1>Repair Your Skin Barriers</h1>
       </h1>
      </div>
       <p 
