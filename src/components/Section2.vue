@@ -202,7 +202,10 @@ export default {
 </script>
 
 <template>
-  <div class="w-full h-full flex flex-col gap-4 items-center justify-start">
+  <div
+    id="services"
+    class="w-full h-full flex flex-col gap-4 items-center justify-start"
+  >
     <div class="w-full flex flex-col gap-5 items-center justify-start">
       <h1 class="title-font sm:text-5xl text-3xl font-medium text-primary">
         Our Services
@@ -212,7 +215,7 @@ export default {
 
     <!-- Services -->
 
-    <div class="w-full container mx-auto px-5 md:px-0 py-10">
+    <div class="w-full container mx-auto px-5 md:px-10 py-10">
       <ul class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
         <li
           class="w-full border border-gary-200 rounded-md shadow-md p-5 box-transition"
