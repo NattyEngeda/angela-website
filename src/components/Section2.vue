@@ -1,6 +1,30 @@
 <script lang="ts">
+ import { Swiper, SwiperSlide } from 'swiper/vue';
+ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+ // Import Swiper styles
+ import 'swiper/css';
+ import 'swiper/scss';
+ import 'swiper/scss/navigation'; 
+ import 'swiper/scss/pagination';
+
 export default {
   name: "Section2",
+  components:{
+    Swiper, 
+    SwiperSlide,
+  },
+
+  setup() {
+    const onSwiper = () => {
+      };
+      const onSlideChange = () => {
+      };
+      return {
+        onSwiper,
+        onSlideChange,
+        modules: [Navigation, Pagination, Scrollbar, A11y],
+      };
+  },
 
   data() {
     return {
@@ -198,6 +222,16 @@ export default {
       ],
     };
   },
+
+  methods: {
+    truncateString(str:string, num:number) {
+      if (str.length <= num) {
+        return str;
+      }
+      return str.slice(0, num) + "...";
+    },
+  }
+
 };
 </script>
 
@@ -214,14 +248,45 @@ export default {
     </div>
 
     <!-- Services -->
+    <div class="w-full container mx-auto px-2 md:px-10 py-10">
+      
+    <!-- Mobile -->
+    <div class="w-full md:hidden">
+    <swiper 
+      :slides-per-view="1.1"
+      :space-between="10" 
+      :scrollbar="{ draggable: true }"
+      @swiper="onSwiper"
+      @slideChange="onSlideChange">
 
-    <div class="w-full container mx-auto px-5 md:px-10 py-10">
-      <ul class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+      <swiper-slide 
+        v-for="(item, index) in mainServices" 
+        :key="index">
+        <div
+          class="w-full border border-gary-200 rounded-md shadow-md p-5 ">
+          <div class="w-full h-52">
+            <img
+              class="w-full h-full object-cover object-center rounded-md"
+              :src="item.image"
+              alt="Basic Facial"
+            />
+          </div>
+          <div class="w-full flex flex-col gap-2 items-start justify-start">
+            <h1 class="text-xl font-medium text-primary">{{ item.name }}</h1>
+            <p class="text-sm text-gray-500">{{ truncateString(item.description,150) }}</p>
+            <h1 class="text-xl font-medium text-primary">${{ item.price }}</h1>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper>
+    </div>
+
+    <!-- Desktop -->
+      <ul class="hidden w-full md:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
         <li
           class="w-full border border-gary-200 rounded-md shadow-md p-5 box-transition"
           v-for="item in mainServices"
-          :key="item.id"
-        >
+          :key="item.id">
           <div class="w-full h-40">
             <img
               class="w-full h-full object-cover object-center rounded-md"
@@ -239,8 +304,7 @@ export default {
     </div>
 
     <div
-      class="w-full bg-primary h-20 flex flex-rows items-center justify-center"
-    >
+      class="w-full bg-primary h-20 flex flex-rows items-center justify-center">
       <p class="text-white text-lg md:text-2xl text-center">
         All Facial services include an arm and hand massage for complete
         relaxation.
@@ -249,21 +313,47 @@ export default {
 
     <!-- Facial Addons -->
     <div
-      class="w-full container mx-auto flex flex-col gap-10 items-center py-5"
-    >
+      class="w-full container mx-auto flex flex-col gap-10 items-center py-5">
       <div>
         <h1 class="text-primary sm:text-5xl text-3xl">Facial Addon(s)</h1>
       </div>
 
-      <div>
-        <ul
-          class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10"
-        >
+      <!-- Mobile -->
+      <div class="w-full md:hidden px-3">
+        <swiper 
+          :slides-per-view="1.1"
+          :space-between="10" 
+          @slideChange="onSlideChange">
+
+          <swiper-slide 
+            v-for="(item, index) in facialAddons" 
+            :key="index">
+            <div class="w-full border border-gary-200 rounded-md shadow-md p-5 ">
+                <div class="w-full h-60">
+                  <img
+                    class="w-full h-full object-cover object-center rounded-md"
+                    :src="item.image"
+                    alt="Basic Facial"
+                  />
+                </div>
+                <div class="w-full flex flex-col gap-2 items-start justify-start">
+                  <h1 class="text-xl font-medium text-primary">{{ item.name }}</h1>
+                  <h1 class="text-xl font-medium text-primary">
+                    ${{ item.price }}
+                  </h1>
+                </div>
+              </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+
+      <!-- Desktop -->
+      <div class="hidden md:block">
+        <ul class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
           <li
             class="w-full border border-gary-200 rounded-md shadow-md p-5 box-transition"
             v-for="item in facialAddons"
-            :key="item.id"
-          >
+            :key="item.id">
             <div class="w-full h-40">
               <img
                 class="w-full h-full object-cover object-center rounded-md"
@@ -283,24 +373,49 @@ export default {
     </div>
 
     <!-- Our Waxing Services -->
-    <div
-      class="w-full container mx-auto flex flex-col gap-10 items-center py-10"
-    >
+    <div class="w-full container mx-auto flex flex-col gap-10 items-center py-10">
       <div>
         <h1 class="text-darkPrimary sm:text-5xl text-3xl font-semibold">
           Our Waxing Services
         </h1>
       </div>
 
-      <div>
-        <ul
-          class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10"
-        >
+      <!-- Mobile -->
+      <div class="w-full md:hidden px-3">
+        <swiper 
+          :slides-per-view="1.1"
+          :space-between="10" 
+          @slideChange="onSlideChange">
+
+          <swiper-slide 
+            v-for="(item, index) in waxingServices" 
+            :key="index">
+            <div class="w-full border border-gary-200 rounded-md shadow-md p-5 ">
+                <div class="w-full h-60">
+                  <img
+                    class="w-full h-full object-cover object-center rounded-md"
+                    :src="item.image"
+                    alt="Basic Facial"
+                  />
+                </div>
+                <div class="w-full flex flex-col gap-2 items-start justify-start">
+                  <h1 class="text-xl font-medium text-primary">{{ item.name }}</h1>
+                  <h1 class="text-xl font-medium text-primary">
+                    ${{ item.price }}
+                  </h1>
+                </div>
+              </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+
+      <!-- Desktop -->
+      <div class="hidden md:block">
+        <ul class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
           <li
             class="w-full border border-gary-200 rounded-md shadow-md p-5 box-transition"
             v-for="item in waxingServices"
-            :key="item.id"
-          >
+            :key="item.id">
             <div class="w-full h-40">
               <img
                 class="w-full h-full object-cover object-center rounded-md"

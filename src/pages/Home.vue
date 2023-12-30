@@ -17,11 +17,5 @@ export default {
     <SectionContact/>
   </div>
 </template>
-
-
-
-
-
 <style lang="scss" scoped>
-
 </style>

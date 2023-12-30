@@ -10,6 +10,9 @@ export default {
         darkPrimary: "#593018"
       },
     },
+    fontFamily:{
+      Assistant: ["Assistant", "sans-serif"],
+    }
   },
   plugins: [],
 }
