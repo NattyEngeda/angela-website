@@ -5,7 +5,18 @@ import SectionContact from '../components/SectionContact.vue';
 
 export default {
     name: "Home",
-    components: { Section1, Section2, SectionContact }
+    components: { Section1, Section2, SectionContact },
+    mounted() {
+    this.scrollToTop();
+  },
+    methods: {
+    scrollToTop(){
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  }
 }
 </script>
 

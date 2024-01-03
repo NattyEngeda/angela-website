@@ -1,6 +1,17 @@
 <script  lang="ts">
   export default {
-    name: 'Contact'
+    name: 'Contact',
+    mounted() {
+    this.scrollToTop();
+  },
+    methods: {
+    scrollToTop(){
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  }
   }
 </script>
 
